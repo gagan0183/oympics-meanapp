@@ -30,19 +30,7 @@ _angular2.default.module('olympics', ['ui.router']).config(function ($stateProvi
     resolve: {
       sportService: function sportService($q) {
         return $q(function (resolve, reject) {
-          var sport = {
-            "name": "Cycling",
-            "goldMedals": [{
-              "division": "Men's Sprint",
-              "country": "UK",
-              "year": 2012
-            }, {
-              "division": "Women's Sprint",
-              "country": "Australia",
-              "year": 2012
-            }]
-          };
-          resolve({ data: sport });
+          var sport = resolve({ data: sport });
         });
       }
     },

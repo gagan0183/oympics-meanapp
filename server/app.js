@@ -16,4 +16,26 @@ app.get("/sports", (request, response) => {
     response.json(sportNames);
   });
 });
+
+app.get('/sports/:name', (request, response) => {
+  let sportName = request.params.name;
+  console.log("Sport name : " + sportName);
+
+  let sport = {
+                "name": "Cycling",
+                "goldMedals": [
+                  {
+                    "division": "Men's Sprint",
+                    "country": "UK",
+                    "year": 2012
+                  },
+                  {
+                    "division": "Women's Sprint",
+                    "country": "Australia",
+                    "year": 2012
+                  }
+                ]
+              };
+    response.json(sport);
+});
 app.listen(8181, () => console.log("listening on 8181"));
