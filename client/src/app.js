@@ -22,11 +22,8 @@ angular.module('olympics', ['ui.router'])
                 url: '/:sportName',
                 templateUrl: 'sports/sports-medals.html',
                 resolve: {
-                  sportService: function($q) {
-                    return $q((resolve, reject) => {
-                      let sport = 
-                      resolve({data: sport});
-                    })
+                  sportService: function($http, $stateParams) {
+                    return $http.get(`/sports/${$stateParams.sportName}`)
                   }
                 },
                 controller: function(sportService) {
